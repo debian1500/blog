@@ -6,7 +6,7 @@ class DateTime():
     def current_datetime(request):
         now = datetime.now()
         context = {
-            'curr_date': now.strftime("%Y-%m-%d"),
+            'curr_date': now.strftime("%d.%m.%y"),
             'curr_time': now.strftime("%H:%M:%S")
         }
         return render(request, 'main/index.html', context)
