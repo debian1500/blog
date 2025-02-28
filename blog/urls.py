@@ -4,5 +4,6 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.DateTime.current_datetime, name='current_datetime'),
+    path('datetime/', views.curr_datetime, name='datetime'),
+    path('', views.index, name='index')
 ]
