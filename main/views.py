@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return render(request, 'main/index.html')
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'main/index.html', context)
 
 
 def curr_datetime(request):
@@ -12,4 +16,3 @@ def curr_datetime(request):
             'curr_time': now.strftime("%H:%M:%S")
         }
     return render(request, 'main/datetime.html', context)  
-
